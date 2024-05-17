@@ -3,12 +3,31 @@
 #include <iostream>
 #include <cmath>
 
+using std::cout;
+using std::cin;
+using std::endl;
+using std::ostream;
+
+template<size_t NROWS, size_t NCOLS>
+class Matrix
+{
+public:
+	Matrix(const float** nums);
+	static Matrix uniform(float num);
+private:
+	const size_t rows = 3;
+    const size_t cols = 3;
+}
+
 class Matrix3f
 {
 public:
-	Matrix3f(float num1, float num2, float num3);
-	static Matrix3f* uniform(float num);
-	const void print() const;
+	Matrix3f(const float(&nums)[rows][cols]);
+	static Matrix3f uniform(float num);
+
+	const;
 private:
-	float _num1, _num2, _num3;
+	static constexpr uint8_t rows = 3;
+	static constexpr uint8_t cols = 3;
+	float nums[rows][cols];
 };
