@@ -13,5 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{073312e3-98b4-48a2-87bf-fb5c613998bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math\Matrix">
+      <UniqueIdentifier>{15c4a877-1e5b-4e39-870d-7ed4fffcb492}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matrix\matrix.cpp">
+      <Filter>Header Files\Math\Matrix</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="math\Math.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matrix\matrix.h">
+      <Filter>Header Files\Math\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
