@@ -1,8 +1,8 @@
 #include <iostream>
-#include "math\Math.h"
+#include "Math/Matrix/matrix.h"
 
 int main()
 {
-	Math::Matrix3f* newMtx = Math::Matrix3f::uniform(9.0f);
-	newMtx->print();
+	Matrix<3,3>newMtx = Matrix<3,3>::uniform(9.0f);
+	std::cout << newMtx;	
 }
