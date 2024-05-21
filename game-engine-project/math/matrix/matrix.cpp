@@ -1,28 +1,39 @@
 #include "matrix.h"
 
-Matrix::Matrix(const float** nums)
+template<size_t NROWS, size_t NCOLS>
+Matrix<NROWS, NCOLS>::Matrix(const float data[NROWS][NCOLS])
 {
-
+	for (size_t i = 0; i < rows; ++i)
+		for (size_t j = 0; j < cols; ++j)
+			nums[i][j] = data[i][j];
 }
 
-Matrix3f::Matrix3f(const float (&nums)[rows][cols]) 
+template<size_t NROWS, size_t NCOLS>
+Matrix<NROWS, NCOLS> Matrix<NROWS, NCOLS>::uniform(float num)
 {
-	for (int i = 0; i < rows; ++i)
-		for (int j = 0; j < cols; ++j)
-			this->nums[i][j] = nums[i][j];
+	float nums[NROWS][NCOLS];
+	std::fill(&nums[0][0], &nums[rows - 1][cols], num);
+	return Matrix(nums);	
 }
 
-Matrix3f Matrix3f::uniform(float num)
+template<size_t NROWS, size_t NCOLS>
+float Matrix<NROWS, NCOLS>::operator()(size_t _idx1, size_t _idx2)
 {
-	float nums[rows][cols];
-	std::fill(&nums[0][0], &nums[rows - 1][cols - 1], num);
-	return Matrix3f(nums);
+	return this->nums[_idx1][_idx2];
 }
 
-void Matrix3f::print() const
+/*
+float Matrix<NROWS, NCOLS>::operator()(size_t _idx1, size_t _idx2)
 {
-	for (int i = 0; i < rows; ++i)
-		for (int j = 0; j < cols; ++j)
-			cout << nums[i][j] << (j == cols - 1 ? std::endl : ' ');
+	return this->nums[_idx1][_idx2];
 }
-
+ostream& operator<<(ostream& os, const Matrix& _mtx)
+{
+	for (int i = 0; i < _mtx.rows; ++i)
+	{
+		for (int j = 0; j < _mtx.cols; ++j)
+			os << _mtx.nums[i][j];
+		os << (i == _mtx.rows - 1 ? "\n" : ", ");
+	}
+	return os;
+}*/
