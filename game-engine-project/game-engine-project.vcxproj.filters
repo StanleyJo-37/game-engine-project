@@ -24,7 +24,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="math\matrix\matrix.cpp">
+    <ClCompile Include="math\matrix\matrix.inl">
       <Filter>Header Files\Math\Matrix</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClInclude Include="math\Math.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="math\matrix\matrix.h">
+    <ClInclude Include="math\matrix\matrix.hpp">
       <Filter>Header Files\Math\Matrix</Filter>
     </ClInclude>
   </ItemGroup>
