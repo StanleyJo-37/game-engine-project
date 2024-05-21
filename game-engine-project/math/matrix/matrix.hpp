@@ -31,4 +31,8 @@ public:
 	}
 };
 
+using Matrix4f = Matrix<4, 4>;
+using Matrix3f = Matrix<3, 3>;
+using Matrix2f = Matrix<2, 2>;
+
 #include "matrix.inl"
