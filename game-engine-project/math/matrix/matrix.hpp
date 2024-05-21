@@ -14,8 +14,6 @@ template<size_t NROWS, size_t NCOLS>
 class Matrix
 {
 private:
-	size_t rows = NROWS;
-	size_t cols = NCOLS;
 	float nums[NROWS][NCOLS];
 public:
 	Matrix(const float data[NROWS][NCOLS]);
