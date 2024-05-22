@@ -90,7 +90,7 @@ inline Matrix<NROWS, NCOLS>& Matrix<NROWS, NCOLS>::operator+(const Matrix& other
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		cout << e.what() << endl;
 		return nullptr;
 	}
 }
@@ -111,7 +111,7 @@ inline Matrix<NROWS, NCOLS>& Matrix<NROWS, NCOLS>::operator-(const Matrix& other
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		cout << e.what() << endl;
 		return nullptr;
 	}
 }

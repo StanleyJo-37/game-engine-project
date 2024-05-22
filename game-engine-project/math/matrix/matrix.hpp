@@ -25,6 +25,8 @@ public:
 	~Matrix() = default;
 
 	static Matrix uniform(float num);
+	static float sum(const Matrix& _mtx);
+	static float sum(const float* _mtx, size_t count);
 
 	float** get2DArray() const { return nums; }
 	std::array<std::array<float, NCOLS>, NROWS> getSTDArray() const { return std::array<std::array<float, NCOLS>, NROWS>(nums); }
