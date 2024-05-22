@@ -13,6 +13,9 @@ inline Matrix<NROWS, NCOLS>::Matrix(const float data[NROWS][NCOLS])
 	for (size_t i = 0; i < NROWS; ++i)
 		for (size_t j = 0; j < NCOLS; ++j)
 			nums[i][j] = data[i][j];
+
+	size[0] = NROWS;
+	size[1] = NCOLS;
 }
 
 template<size_t NROWS, size_t NCOLS>
@@ -21,6 +24,9 @@ inline Matrix<NROWS, NCOLS>::Matrix(Matrix&& other) noexcept
 	for (size_t i = 0; i < NROWS; ++i)
 		for (size_t j = 0; j < NCOLS; ++j)
 			nums[i][j] = std::move(other.nums[i][j]);
+
+	size[0] = NROWS;
+	size[1] = NCOLS;
 }
 
 template<size_t NROWS, size_t NCOLS>
@@ -29,6 +35,9 @@ inline Matrix<NROWS, NCOLS>::Matrix(float(&& data)[NROWS][NCOLS]) noexcept
 	for (size_t i = 0; i < NROWS; ++i)
 		for (size_t j = 0; j < NCOLS; ++j)
 			nums[i][j] = std::move(data[i][j]);
+
+	size[0] = NROWS;
+	size[1] = NCOLS;
 }
 
 template<size_t NROWS, size_t NCOLS>
@@ -37,6 +46,9 @@ inline Matrix<NROWS, NCOLS>::Matrix(const Matrix& other)
 	for (size_t i = 0; i < NROWS; ++i)
 		for (size_t j = 0; j < NCOLS; ++j)
 			nums[i][j] = other.nums[i][j];
+
+	size[0] = NROWS;
+	size[1] = NCOLS;
 }
 
 template<size_t NROWS, size_t NCOLS>
@@ -47,6 +59,9 @@ inline Matrix<NROWS, NCOLS>& Matrix<NROWS, NCOLS>::operator=(const Matrix& other
 		for (size_t i = 0; i < NROWS; ++i)
 			for (size_t j = 0; j < NCOLS; ++j)
 				nums[i][j] = other.nums[i][j];
+
+		size[0] = NROWS;
+		size[1] = NCOLS;
 
 		return *this;
 }

@@ -15,6 +15,7 @@ class Matrix
 {
 private:
 	float nums[NROWS][NCOLS];
+	size_t size[2];
 public:
 	Matrix(const float data[NROWS][NCOLS]);
 	Matrix(Matrix&& other) noexcept;
@@ -25,9 +26,13 @@ public:
 
 	static Matrix uniform(float num);
 
-	float operator()(size_t _idx1, size_t _idx2) const { return this->nums[_idx1][_idx2]; }
-	
+	float** get2DArray() const { return nums; }
+	const size_t* getSize() const { return size; }
 
+	float operator()(size_t _idx1, size_t _idx2) const { return this->nums[_idx1][_idx2]; }
+	Matrix operator+(const Matrix& other);
+	Matrix operator-(const Matrix& other);
+	Matrix operator*(const Matrix& other);
 
 	friend inline ostream& operator<<(ostream& os, const Matrix<NROWS, NCOLS>& _mtx)
 	{
