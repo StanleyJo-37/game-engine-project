@@ -27,6 +27,8 @@ public:
 	static Matrix uniform(float num);
 
 	float** get2DArray() const { return nums; }
+	std::array<std::array<float, NCOLS>, NROWS> getSTDArray() const { return std::array<std::array<float, NCOLS>, NROWS>(nums); }
+	std::vector<std::vector<float>> getSTDVector() const { return std::vector<std::vector<float>>(nums); }
 	const size_t* getSize() const { return size; }
 
 	float operator()(size_t _idx1, size_t _idx2) const { return this->nums[_idx1][_idx2]; }
