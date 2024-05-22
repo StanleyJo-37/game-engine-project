@@ -73,3 +73,51 @@ inline Matrix<NROWS, NCOLS> Matrix<NROWS, NCOLS>::uniform(float num)
 	std::fill(&nums[0][0], &nums[0][0] + NROWS * NCOLS, num);
 	return Matrix(nums);
 }
+
+template<size_t NROWS, size_t NCOLS>
+inline Matrix<NROWS, NCOLS>& Matrix<NROWS, NCOLS>::operator+(const Matrix& other)
+{
+	try
+	{
+		if (this->size[0] != other.size[0] || this->size[1] != other.size[1]) throw std::runtime_error("Matrices's sizes don't match up.");
+
+		float newData[NROWS][NCOLS];
+		for (size_t i = 0; i < NROWS; ++i)
+			for (size_t j = 0; j < NCOLS; ++j)
+				newData[i][j] = this->nums[i][j] + other.nums[i][j];
+
+		return Matrix(newData);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+		return nullptr;
+	}
+}
+
+template<size_t NROWS, size_t NCOLS>
+inline Matrix<NROWS, NCOLS>& Matrix<NROWS, NCOLS>::operator-(const Matrix& other)
+{
+	try
+	{
+		if (this->size[0] != other.size[0] || this->size[1] != other.size[1]) throw std::runtime_error("Matrices's sizes don't match up.");
+
+		float newData[NROWS][NCOLS];
+		for (size_t i = 0; i < NROWS; ++i)
+			for (size_t j = 0; j < NCOLS; ++j)
+				newData[i][j] = this->nums[i][j] - other.nums[i][j];
+
+		return Matrix(newData);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+		return nullptr;
+	}
+}
+
+template<size_t NROWS, size_t NCOLS>
+inline Matrix<NROWS, NCOLS>& Matrix<NROWS, NCOLS>::operator*(const Matrix& other)
+{
+	return Matrix();
+}

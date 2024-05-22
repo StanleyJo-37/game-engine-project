@@ -32,9 +32,9 @@ public:
 	const size_t* getSize() const { return size; }
 
 	float operator()(size_t _idx1, size_t _idx2) const { return this->nums[_idx1][_idx2]; }
-	Matrix operator+(const Matrix& other);
-	Matrix operator-(const Matrix& other);
-	Matrix operator*(const Matrix& other);
+	Matrix& operator+(const Matrix& other);
+	Matrix& operator-(const Matrix& other);
+	Matrix& operator*(const Matrix& other);
 
 	friend inline ostream& operator<<(ostream& os, const Matrix<NROWS, NCOLS>& _mtx)
 	{
