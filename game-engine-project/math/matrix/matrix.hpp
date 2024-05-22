@@ -17,9 +17,18 @@ private:
 	float nums[NROWS][NCOLS];
 public:
 	Matrix(const float data[NROWS][NCOLS]);
+	Matrix(Matrix&& other) noexcept;
+	Matrix(float (&&data)[NROWS][NCOLS]) noexcept;
+	Matrix(const Matrix& other);
+	Matrix& operator=(const Matrix& other);
+	~Matrix() = default;
+
 	static Matrix uniform(float num);
 
-	float operator()(size_t _idx1, size_t _idx2);
+	float operator()(size_t _idx1, size_t _idx2) const { return this->nums[_idx1][_idx2]; }
+	
+
+
 	friend inline ostream& operator<<(ostream& os, const Matrix<NROWS, NCOLS>& _mtx)
 	{
 		for (int i = 0; i < NROWS; ++i)
